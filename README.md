@@ -21,3 +21,4 @@ The user will be able to :
 <img width="688" alt="Wireframe 5" src="https://user-images.githubusercontent.com/119818121/214102927-0d10bf43-28eb-4b77-a6a3-94c752f4b192.png">
 <img width="688" alt="Wireframe 6" src="https://user-images.githubusercontent.com/119818121/214102947-27ca96a7-9713-4867-81ea-2b480426b7df.png">
 <img width="688" alt="Wireframe 7" src="https://user-images.githubusercontent.com/119818121/214102960-b8b50eda-0ae5-4f61-8c81-46cfdf07e3bb.png">
+<img width="688" alt="Wireframe 8" src="https://user-images.githubusercontent.com/119818121/214103405-abdc4983-e351-4445-9955-b7de9bb2ffa9.png">
