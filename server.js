@@ -22,5 +22,24 @@ const app = require('liquid-express-views')(express())
 
 middleware(app)
 
+/////////////////////////////////////
+//// Routes                      ////
+/////////////////////////////////////
+
+//Home page 
+
+app.get('/', (req, res) => {
+    const { username, loggedIn, userId } = req.session
+    res.render('home.liquid', { username, loggedIn, userId })
+})
+
+app.use('/')
 
 
+
+
+/////////////////////////////////////
+//// Server Listener             ////
+/////////////////////////////////////
+const PORT = process.env.PORT
+app.listen(PORT, () => console.log(`Now listening to the sweet sounds of port: ${PORT}`))
