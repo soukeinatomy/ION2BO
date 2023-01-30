@@ -1,16 +1,13 @@
 /////////////////////////////////////
 //// Import Dependencies         ////
 /////////////////////////////////////
-const express = require('express')
-const morgan = require('morgan')
-require('dotenv').config()
+require("dotenv").config() // make env variables available
+const express = require("express")
+const middleware = require('./utils/middleware')
+const MoodRouter = require('./Controllers/Mood')
+const User = require('./Models/User')
 
 
-const path = require('path')
-const UserRouter = require('./controllers/userControllers')
-const MoodRouter = require('./controllers/moodControllers')
-
-const middleware = require ('./utils/middleware')
 
 /////////////////////////////////////
 //// Create our Express App Object //
@@ -30,9 +27,12 @@ middleware(app)
 
 //Home page 
 
+app.use('/auth', UserRouter)
+app.use('/Mood', ExampleRouter)
+
 app.get('/', (req, res) => {
-    const { username, loggedIn, userId } = req.session
-    res.render('home.liquid', { username, loggedIn, userId })
+    const { username, userId, loggedIn } = req.session
+	res.render('index.liquid', { loggedIn, username, userId })
 })
 
 app.get('/error', (req, res) => {
@@ -40,6 +40,7 @@ app.get('/error', (req, res) => {
     const { username, loggedIn, userId } = req.session
 	res.render('error.liquid', { error, username, loggedIn, userId })
 })
+
 
 //if app not found, send to error page
 
