@@ -10,14 +10,9 @@ const User = require('./Models/User')
 
 
 /////////////////////////////////////
-//// Create our Express App Object //
-/////////////////////////////////////
-
-const app = require('liquid-express-views')(express())
-
-/////////////////////////////////////
 //// Middleware                  ////
 /////////////////////////////////////
+const app = require('liquid-express-views')(express())
 
 middleware(app)
 
