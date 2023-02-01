@@ -4,8 +4,10 @@
 require("dotenv").config() // make env variables available
 const express = require("express")
 const middleware = require('./utils/middleware')
+
 const MoodRouter = require('./Controllers/Mood')
-const User = require('./Models/User')
+const UserRouter = require('./Models/User')
+
 
 
 
@@ -21,13 +23,14 @@ middleware(app)
 /////////////////////////////////////
 
 //Home page 
+app.use('/mood', MoodRouter) 
 
 app.use('/auth', UserRouter)
-app.use('/Mood', ExampleRouter)
+//app.use('/Mood', ExampleRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
-	res.render('index.liquid', { loggedIn, username, userId })
+//res.render('index.liquid', { loggedIn, username, userId })
 })
 
 app.get('/error', (req, res) => {
@@ -42,8 +45,6 @@ app.get('/error', (req, res) => {
 app.all('*', (req, res) => {
 	res.redirect('/error')
 })
-
-
 
 
 /////////////////////////////////////
