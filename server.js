@@ -6,8 +6,8 @@ const express = require("express")
 const middleware = require('./utils/middleware')
 
 const MoodRouter = require('./Controllers/Mood')
-const UserRouter = require('./Models/User')
-
+const UserRouter = require('./Controllers/User')
+const User = require("./Models/User")
 
 
 
@@ -24,13 +24,17 @@ middleware(app)
 
 //Home page 
 app.use('/mood', MoodRouter) 
-
 app.use('/auth', UserRouter)
 //app.use('/Mood', ExampleRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
-//res.render('index.liquid', { loggedIn, username, userId })
+	res.render('index.liquid', { loggedIn, username, userId })
+})
+
+app.get('/', (req, res) => {
+    const { username, userId, loggedIn } = req.session
+	res.render('layout.liquid', { loggedIn, username, userId })
 })
 
 app.get('/error', (req, res) => {
@@ -46,9 +50,15 @@ app.all('*', (req, res) => {
 	res.redirect('/error')
 })
 
+//////////////////////////////
+//      App Listener        //
+//////////////////////////////
+app.listen(process.env.PORT, () => {
+    console.log(`listening on port ${process.env.PORT}`)
+})
 
 /////////////////////////////////////
 //// Server Listener             ////
 /////////////////////////////////////
-const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`Now listening to the sweet sounds of port: ${PORT}`))
+// const PORT = process.env.PORT
+// app.listen(PORT, () => console.log(`Now listening to the sweet sounds of port: ${PORT}`))

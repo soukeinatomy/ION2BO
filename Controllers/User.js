@@ -2,7 +2,7 @@
 // Import Dependencies                   ///
 ////////////////////////////////////////////
 const express = require('express')
-const User = require('../models/user')
+const User = require('../Models/User')
 const bcrypt = require('bcryptjs')
 
 ////////////////////////////////////////////
@@ -21,15 +21,12 @@ res.render('auth/signup')
 // POST 
 router.post('/signup', async (req, res) => {
 // set the password to hashed password
-const newUser = req.body
-console.log(newUser)
-
-newUser.password = await bcrypt.hash(
-newUser.body.password,
+req.body.password = await bcrypt.hash(
+req.body.password,
 await bcrypt.genSalt(10)
 )
 // create a new user
-User.create(newUser)
+User.create(req.body)
 // if created successfully redirect to login
 .then((user) => {
 console.log('new user created \n', user)
@@ -37,7 +34,7 @@ res.redirect('/auth/login')
 })
 // if an error occurs, send err
 .catch((error) => {
-console.log(err)
+
 res.redirect(`/error?error=${error}`)
 })
 })
@@ -50,10 +47,9 @@ res.render('auth/login')
 // post to send the login info(and create a session)
 router.post('/login', async (req, res) => {
 	
-	
 const { username, password } = req.body
 // then we search for the user
-User.findOne({ username })
+User.findOne({ username: username })
 .then(async (user) => {
 // check if the user exists
 if (user) {
@@ -69,7 +65,7 @@ req.session.userId = user.id
 const { username, loggedIn, userId } = req.session
 
 console.log('session user id', req.session.userId)
-					
+				
 res.redirect('/mood')
 } else {
 // send an error if the password doesnt match
