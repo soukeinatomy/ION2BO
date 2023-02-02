@@ -11,7 +11,8 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "seed" : "node Models/seed.js"
   },
   "name": "ion2bo",
   "description": "ION2BO APP It's ok not to be ok.",

@@ -6,22 +6,28 @@ const mongoose = require('../utils/connection')
 
 const { Schema, model } = mongoose
 
-const moodSchema = new Schema ({
+const resourceSchema = new Schema ({
     
 // entry: {
 // type: Schema.Types.ObjectId,
 // ref: 'User',
 // required: true
 // },
-peopleMood: {
+sadResource: {
 type: String,
+},
+lonelyResource: {
+    type: String,
+},
+anxiousResource: {
+    type: String,
 }
     
 },{
     timestamps: true
 }
 )
-const Mood= model('Mood', moodSchema)
+const Resource= model('Resource', resourceSchema)
 
 
-module.exports = Mood
+module.exports = Resource

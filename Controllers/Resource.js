@@ -1,7 +1,7 @@
 // Import Dependencies
 const { application } = require('express')
 const express = require('express')
-const Mood = require('../Models/Mood')
+const Resource = require('../Models/resource')
 
 // Create router
 const router = express.Router()
@@ -21,17 +21,11 @@ res.redirect('/auth/login')
 })
 
 
-//Render Mood page
-
-// router.get ('/', (req, res) =>{
-// res.render ('Mood')
-// }
-// )
 router.get('/', (req, res)=> {
-    Mood.find({})
-        .then(mood=> {
-            console.log(`THISSS ISSSS MY MOOOODDDDD`, mood)
-            res.render('Mood', {mood} )
+    Resource.find({})
+        .then(resource=> {
+            console.log(`These are our resources`, resource)
+            res.render('Resource', {resource} )
         })
 })
 
