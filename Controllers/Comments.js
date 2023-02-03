@@ -26,9 +26,9 @@ router.post('/:moodId', (req, res) => {
         const theComment = req.body
         // find a specific fruit
         Resource.findById(moodId)
-            .then(mood => {
-                // create the comment(with a req.body)
-                mood.comments.push(theComment)
+       .then(mood => {
+       // create the comment(with a req.body)
+          mood.comments.push(theComment)
                 // save 
                 return mood.save()
             })
@@ -63,7 +63,7 @@ router.delete('/delete/:moodId/:commId', (req, res) => {
             console.log('this is the comment to be deleted: \n', theComment)
             // then we want to make sure the user is loggedIn, and that they are the author of the comment
             if (req.session.loggedIn) {
-                // if they are the author, allow them to delete
+            // if they are the author, allow them to delete
                 if (theComment.author == req.session.userId) {
                     // we can use another built in method - remove()
                     theComment.remove()
