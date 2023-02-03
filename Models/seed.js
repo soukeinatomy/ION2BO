@@ -38,21 +38,6 @@ const seedR = [
 
 // db.on('open', () => {
 //     Mood.deleteMany()
-//         .then(() => {
-//             // then we'll seed(create) our starter fruits
-//            Mood.create(seed)
-//                 // tell our app what to do with success and failures
-//                 .then(data => {
-//                     console.log('here is the: \n', data)
-//                     // once it's done, we close the connection
-//                     db.close()
-//                 })
-//                 .catch(err => {
-//                     console.log('The following error occurred: \n', err)
-//                     // always close the connection
-//                     db.close()
-//                 })
-//         })
 //         .catch(err => {
 //             console.log(err)
 //             // always make sure to close the connection

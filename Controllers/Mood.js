@@ -2,6 +2,7 @@
 const { application } = require('express')
 const express = require('express')
 const Mood = require('../Models/Mood')
+const User = require('../Models/User')
 
 // Create router
 const router = express.Router()
@@ -23,6 +24,7 @@ next()
 res.redirect('/auth/login')
 }
 })
+
 
 
 //Render Mood page
