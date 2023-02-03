@@ -8,11 +8,7 @@ const { Schema, model } = mongoose
 
 const moodSchema = new Schema ({
     
-// entry: {
-// type: Schema.Types.ObjectId,
-// ref: 'User',
-// required: true
-// },
+
 peopleMood: {
 type: String,
 }

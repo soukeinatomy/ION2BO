@@ -2,6 +2,7 @@
 const { application } = require('express')
 const express = require('express')
 const Resource = require('../Models/Resource')
+const User = require('../Models/User')
 
 // Create router
 const router = express.Router()
