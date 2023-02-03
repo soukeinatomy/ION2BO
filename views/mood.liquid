@@ -6,17 +6,15 @@
           <h2 class="display-6">Hi {{ username }} - Please let us know how you feel today?</h2>
         </h1>
         
-    <form action="/mood" method="POST">
+    <form action="/resource" method="GET">
     <button type="submit" class="btn btn-sm btn-info" name="sad">I Feel Sad</button>
     </form>
-    <form action="/mood" method="POST">
+    <form action="/resource" method="GET">
     <button type="submit" class="btn btn-sm btn-info" name="lonely">I Feel Lonely</button>
     </form>
-    <form action="/mood" method="POST">
+    <form action="/resource" method="GET">
     <button type="submit" class="btn btn-sm btn-info" name="anxious">I Feel Anxious</button>
     </form>
 
       
-
-
 {% endblock %}
