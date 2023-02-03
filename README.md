@@ -35,3 +35,4 @@ ION2BO is a mental health app where users can access important ressources as wel
 
 <img width="768" alt="ERD" src="https://user-images.githubusercontent.com/119818121/214135486-980f5df8-b4c0-4889-b474-5ec739e1e819.png">
 
+<img width="398" alt="Screenshot 2023-02-03 at 4 10 28 PM" src="https://user-images.githubusercontent.com/119818121/216712313-4df2c477-2897-4d43-ace6-1a8cddbed885.png">
