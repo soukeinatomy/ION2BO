@@ -1,7 +1,7 @@
 // Import Dependencies
 const { application } = require('express')
 const express = require('express')
-const Resource = require('../Models/resource')
+const Resource = require('../Models/Resource')
 
 // Create router
 const router = express.Router()
@@ -9,16 +9,21 @@ const router = express.Router()
 //Router Middleware
 // Authorization middleware
 
-router.get((req, res, next) => {
-// checking the loggedIn boolean of our session
-if (req.session.loggedIn) {
-// if they're logged in, go to the next thing(thats the controller)
-next()
-} else {
-// if they're not logged in, send them to the login page
-res.redirect('/auth/login')
-}
+router.get('/resource', (req, res) => {
+    res.render('views/resource')
 })
+
+// router.get((req, res, next) => {
+// // checking the loggedIn boolean of our session
+// if (req.session.loggedIn) {
+// // if they're logged in, go to the next thing(thats the controller)
+// next()
+// } else {
+// // if they're not logged in, send them to the login page
+// res.redirect('/auth/login')
+// }
+// })
+
 
 
 router.get('/', (req, res)=> {

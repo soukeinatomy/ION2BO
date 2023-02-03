@@ -20,15 +20,20 @@ const seed = [
 
 ]
 const seedR = [
-    {sadResource: 'www.sadlink.com'
+    {resourcelinksad: 'https://www.youtube.com/watch?v=AmtZ_gBMyrc',
+    resourcelinklonely: 'https://www.youtube.com/watch?v=2QuptORKT8U',
+    resourcelinkanxious: 'https://www.youtube.com/watch?v=XFTXKqRujxk'
     },
-    {lonelyResource: 'www.lonelylink.com'
+    {resourcelinksad: 'https://www.youtube.com/watch?v=KZCCWF9idSQ',
+    resourcelinklonely: 'https://www.youtube.com/watch?v=AtCR6P5rsXU',
+    resourcelinkanxious: 'https://www.youtube.com/watch?v=D8Gc6_S6i0k'
     },
-    {anxiousResource: 'www.anxiouslink.com'
+    {resourcelinksad: 'https://www.wikihow.com/Stop-Being-Sad',
+    resourcelinklonely: 'https://www.healthline.com/health/mental-health/how-to-not-feel-lonely',
+    resourcelinkanxious: 'https://www.calmclinic.com/anxiety/stop-anxiety-quickly'
     }
-
+  
 ]
-
 ////////// Populate Seed //////////
 
 // db.on('open', () => {
@@ -55,11 +60,13 @@ const seedR = [
 //         })     
 // })
 
+
+
 db.on('open', () => {
     Resource.deleteMany()
         .then(() => {
             // then we'll seed(create) our starter fruits
-           Resource.create(seedR)
+           Resource.insertMany(seedR)
                 // tell our app what to do with success and failures
                 .then(data => {
                     console.log('here is the: \n', data)

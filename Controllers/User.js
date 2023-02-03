@@ -66,7 +66,7 @@ const { username, loggedIn, userId } = req.session
 
 console.log('session user id', req.session.userId)
 				
-res.redirect('/mood')
+res.redirect('/')
 } else {
 // send an error if the password doesnt match
 res.redirect('/error?error=username%20or%20password%20incorrect')

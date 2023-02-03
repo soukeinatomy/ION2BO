@@ -9,6 +9,10 @@ const router = express.Router()
 //Router Middleware
 // Authorization middleware
 
+router.get('/mood', (req, res) => {
+    res.render('views/mood')
+})
+
 router.get((req, res, next) => {
 // checking the loggedIn boolean of our session
 if (req.session.loggedIn) {

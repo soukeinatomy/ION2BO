@@ -1,6 +1,13 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-  <div>
-    <h2 class="display-6">It's OK not to be OK</h2>
-  </div>
+
+  <h1>ITS OK NOT TO BE OK</h1>
+
+  {% if loggedIn %}
+    <h1>
+      <h2 class="display-6">Hi {{ username }} - Please let us know how you feel today? Click the my mood page above!</h2>
+    </h1>
+  {% else %}
+    <h2 class="display-6">Welcome to Its OK not to Be OK: Please click Sign up or Sign in above to start</h2>
+  {% endif %}
 {% endblock %}

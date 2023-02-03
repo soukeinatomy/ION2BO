@@ -1,19 +1,22 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div>
-    <h2 class="display-6">Hi {{ username }} - Please let us know how you feel today?</h2>
 
-    {% for m in mood %}
-      <div style="width: 18rem;" class="me-3">
-        <div class="card me-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ m.peopleMood }}</h5>
-            <a href="https://en.wikipedia.org/wiki/Anxiety">
-              <button>Click Here</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
+        <h1>
+          <h2 class="display-6">Hi {{ username }} - Please let us know how you feel today?</h2>
+        </h1>
+        
+    <form action="/mood" method="POST">
+    <button type="submit" class="btn btn-sm btn-info" name="sad">I Feel Sad</button>
+    </form>
+    <form action="/mood" method="POST">
+    <button type="submit" class="btn btn-sm btn-info" name="lonely">I Feel Lonely</button>
+    </form>
+    <form action="/mood" method="POST">
+    <button type="submit" class="btn btn-sm btn-info" name="anxious">I Feel Anxious</button>
+    </form>
+
+      
+
 
 {% endblock %}

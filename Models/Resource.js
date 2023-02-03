@@ -8,25 +8,13 @@ const { Schema, model } = mongoose
 
 const resourceSchema = new Schema ({
     
-// entry: {
-// type: Schema.Types.ObjectId,
-// ref: 'User',
-// required: true
-// },
-sadResource: {
-type: String,
-},
-lonelyResource: {
-    type: String,
-},
-anxiousResource: {
-    type: String,
-}
+    resourcelinksad: {type: String},
+    resourcelinklonely: {type: String},
+    resourcetypeanxious: {type: String}
     
-},{
-    timestamps: true
-}
-)
+
+},{strict: false})
+
 const Resource= model('Resource', resourceSchema)
 
 

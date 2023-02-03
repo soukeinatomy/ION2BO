@@ -1,13 +1,13 @@
 {% block content %}
   <nav class="navbar navbar-expand-md navbar-light" id="nav">
     <div class="container-fluid">
-      <a href="/" class="navbar-brand">mood</a>
+      <a href="/" class="navbar-brand">ION2BO</a>
 
       {% if loggedIn %}
 
-        <a href="/mood" class="nav-link text-dark">
+        <h1>
           Hi {{ username }}
-        </a>
+        </h1>
       {% endif %}
       <button
         class="navbar-toggler"
@@ -21,12 +21,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         {% if loggedIn %}
-          <div class="d-flex justify-content-center flex-column w-100 text-center"></div>
-          <a href="/mood" class="nav-link text-dark">
-            How is your mood today ?</a>
-          <div class="d-flex justify-content-center flex-column w-100 text-center"></div>
-          <a href="/auth/logout" class="nav-link text-dark">
-            Log Out</a>
+          <a href="/mood" class="nav-link text-light me-4">My Mood</a>
+          <a href="/resource" class="nav-link text-light me-4">Resources</a>
+          <a href="/auth/logout" class="nav-link text-light me-4">Log Out</a>
         {% else %}
           <a href="/auth/signup" class="nav-link text-dark">
             Sign Up
