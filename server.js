@@ -8,7 +8,7 @@ const ResourceRouter = require ('./Controllers/Resource')
 const MoodRouter = require('./Controllers/Mood')
 const UserRouter = require('./Controllers/User')
 const User = require("./Models/User")
-
+const CommentRoute = require('./Controllers/Comments')
 
 
 /////////////////////////////////////
@@ -25,7 +25,8 @@ middleware(app)
 //Home page 
 app.use('/mood', MoodRouter) 
 app.use('/resource', ResourceRouter) 
-app.use('/auth', UserRouter)	
+app.use('/auth', UserRouter)
+app.use(CommentRoute)	
 //app.use('/Mood', ExampleRouter)
 
 app.get('/', (req, res) => {

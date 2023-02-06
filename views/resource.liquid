@@ -1,53 +1,46 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-  {% if mood.id == sad %}
-    {% for r in resource %}
-      <div style="width: 18rem;" class="me-3">
-        <div class="card me-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ r.resourcelinksad }}</h5>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  {% else if mood.id == anxious %}
-    {% for r in resource %}
-      <div style="width: 18rem;" class="me-3">
-        <div class="card me-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ r.resourcelinklonely }}</h5>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  {% else %}
-    {% for r in resource %}
-      <div style="width: 18rem;" class="me-3">
-        <div class="card me-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ r.resourcelinkanxious }}</h5>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  {% endif %}
-  <div class="col-md-6">
-    <form action="/comments/{{mood.id}}" method="POST">
-      <fieldset>
-        <legend>Please comment on your progress with these resources?</legend>
-        <label class="form-label">Comment:
-        </label>
-        <input
-          type="text"
-          class="form-control"
-          name="note"
-          placeholder="enter comment here...">
-      </fieldset>
-      <input
-        type="submit"
-        class="btn btn-success"
-        value="Add Comment">
-    </form>
+{% if mood.id == sad %}
+{% for r in resource %}
+<div style="width: 18rem;" class="me-3">
+  <div class="card me-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ r.resourcelinksad }}</h5>
+    </div>
   </div>
+</div>
+{% endfor %}
+{% else if mood.id == anxious %}
+{% for r in resource %}
+<div style="width: 18rem;" class="me-3">
+  <div class="card me-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ r.resourcelinklonely }}</h5>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+{% for r in resource %}
+<div style="width: 18rem;" class="me-3">
+  <div class="card me-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ r.resourcelinkanxious }}</h5>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+<div class="col-md-6">
+  <form action="/posts" method="POST">
+    <fieldset>
+      <legend>Please comment on your progress with these resources?</legend>
+      <label class="form-label">Comment:
+      </label>
+      <input type="text" class="form-control" name="note" placeholder="enter comment here...">
+    </fieldset>
+    <input type="submit" class="btn btn-success" value="Add Comment">
+  </form>
+</div>
 
 {% endblock %}

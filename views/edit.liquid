@@ -1,0 +1,16 @@
+{% block content %}
+
+<body>
+    <h1>Edit Comment</h1>
+
+    <form action="/update/<%= data._id%>" method="post" name="form1">
+        <div class="form-group">
+            <label for="exampleInputPassword1">Title</label>
+            <input type="text" class="form-control" name="title" id="title" value="{{comm.note}}>
+        </div>
+
+
+        <button type=" submit" class="btn btn-info">Update</button>
+    </form>
+</body>
+{% endblock %}
