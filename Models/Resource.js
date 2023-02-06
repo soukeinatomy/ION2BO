@@ -8,9 +8,9 @@ const { Schema, model } = mongoose
 
 const resourceSchema = new Schema ({
     
-    resourcelinksad: {type: String},
-    resourcelinklonely: {type: String},
-    resourcetypeanxious: {type: String}
+resourcelinksad: {type: String},
+resourcelinklonely: {type: String},
+resourcetypeanxious: {type: String}
     
 
 },{strict: false})

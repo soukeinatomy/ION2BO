@@ -1,38 +1,32 @@
 {% block content %}
-  <nav class="navbar navbar-expand-md navbar-light" id="nav">
-    <div class="container-fluid">
-      <a href="/" class="navbar-brand">ION2BO</a>
+<nav class="navbar navbar-expand-md navbar-light" id="nav">
+  <div class="container-fluid">
+    <a href="/" class="navbar-brand">ION2BO</a>
 
+    {% if loggedIn %}
+
+    <h1>
+      Hi {{ username }}
+    </h1>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
       {% if loggedIn %}
-
-        <h1>
-          Hi {{ username }}
-        </h1>
+      <a href="/mood" class="nav-link text-light me-4">My Mood</a>
+      <a href="/resource" class="nav-link text-light me-4">Resources</a>
+      <a href="/auth/logout" class="nav-link text-light me-4">Log Out</a>
+      {% else %}
+      <a href="/auth/signup" class="nav-link text-dark">
+        Sign Up
+      </a>
+      <a href="/auth/login" class="nav-link text-dark">
+        Sign In
+      </a>
       {% endif %}
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        {% if loggedIn %}
-          <a href="/mood" class="nav-link text-light me-4">My Mood</a>
-          <a href="/resource" class="nav-link text-light me-4">Resources</a>
-          <a href="/auth/logout" class="nav-link text-light me-4">Log Out</a>
-        {% else %}
-          <a href="/auth/signup" class="nav-link text-dark">
-            Sign Up
-          </a>
-          <a href="/auth/login" class="nav-link text-dark">
-            Sign In
-          </a>
-        {% endif %}
-      </div>
     </div>
-  </nav>
+  </div>
+</nav>
 {% endblock %}

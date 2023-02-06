@@ -14,7 +14,7 @@ type: String,
 }
     
 },{
-    timestamps: true
+timestamps: true
 }
 )
 const Mood= model('Mood', moodSchema)

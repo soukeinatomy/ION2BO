@@ -28,11 +28,11 @@ router.get('/resource', (req, res) => {
 
 
 router.get('/', (req, res)=> {
-    Resource.find({})
-        .then(resource=> {
-            console.log(`These are our resources`, resource)
-            res.render('Resource', {resource} )
-        })
+Resource.find({})
+.then(resource=> {
+console.log(`These are our resources`, resource)
+res.render('Resource', {resource} )
+})
 })
 
 

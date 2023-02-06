@@ -1,5 +1,3 @@
-
-
 /////////////////////////////////////
 //// Import Dependencies         ////
 /////////////////////////////////////
@@ -89,6 +87,49 @@ router.delete('/delete/:moodId/:commId', (req, res) => {
 })
 
 
+
+// get all commentts
+router.get("/allcoments", function (req, res, next) {
+    Mood.find((err, docs) => {
+      if (!err) {
+        res.render("comments", {
+          data: docs,
+        });
+      } else {
+        console.log("Failed to retrieve the blog Lists: " + err);
+      }
+    });
+  });
+  
+  // redirect to edit page
+  router.get("/edit/(:id)", async (req, res) => {
+    Mood.findOne({ _id: req.params.id }).exec(function (err, docs) {
+      if (!err) {
+        res.render("edit", { data: docs });
+      } else {
+        console.log("Error:", err);
+      }
+    });
+  });
+  
+  // update post
+  router.post("/update/(:id)", function (req, res) {
+    Mood.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: { note: req.body.note,  },
+      },
+      { new: true },
+      function (err, docs) {
+        if (err) {
+          console.log(err);
+          res.render("edit", { data: req.body });
+        }
+        res.redirect("/comments");
+      }
+    );
+  });
+ 
 //////////////////////////////
 //// Export Router        ////
 //////////////////////////////
